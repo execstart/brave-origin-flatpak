@@ -5,7 +5,7 @@ on:
     - cron: "0 8 * * *" # runs every day at 08:00 UTC
   workflow_dispatch:
   push:
-    branches: [master]
+    branches: [stable]
 
 permissions:
   contents: write
@@ -30,10 +30,10 @@ jobs:
           git config --global user.name "brave-bot"
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
           
-          if [[ -n $(git status -s io.github.shyvortex.BraveOrigin.yaml) ]]; then
+          if [[ -n $(git status -s io.github.rixbyte.BraveOrigin.yaml) ]]; then
             echo "changes_detected=true" >> "$GITHUB_OUTPUT"
             VERSION=$(grep -m1 'version:' version.txt | awk '{print $2}')
-            git add io.github.shyvortex.BraveOrigin.yaml io.github.shyvortex.BraveOrigin.metainfo.xml version.txt
+            git add io.github.rixbyte.BraveOrigin.yaml io.github.rixbyte.BraveOrigin.metainfo.xml version.txt
             git commit -m "update: brave-origin $VERSION"
             git push origin HEAD:master
           else

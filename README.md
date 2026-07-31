@@ -39,13 +39,13 @@ Run the following command in the root of this repository. This will download the
 For x86_64 systems:
 
 ```bash
-flatpak-builder --arch=x86_64 --user --install --force-clean build-dir io.github.shyvortex.BraveOrigin.yaml
+flatpak-builder --arch=x86_64 --user --install --force-clean build-dir io.github.rixbyte.BraveOrigin.yaml
 ```
 
 For ARM64 systems:
 
 ```bash
-flatpak-builder --arch=aarch64 --user --install --force-clean build-dir io.github.shyvortex.BraveOrigin.yaml
+flatpak-builder --arch=aarch64 --user --install --force-clean build-dir io.github.rixbyte.BraveOrigin.yaml
 ```
 
 *Note: to install for all users, use sudo and replace '--user' with '--system'.*
@@ -57,7 +57,7 @@ flatpak-builder --arch=aarch64 --user --install --force-clean build-dir io.githu
 Once installed (via bundle or local build), you can launch Brave Origin from your application menu or via the terminal:
 
 ```bash
-flatpak run io.github.shyvortex.BraveOrigin
+flatpak run io.github.rixbyte.BraveOrigin
 ```
 
 ---
@@ -67,9 +67,9 @@ flatpak run io.github.shyvortex.BraveOrigin
 To remove Brave Origin and its data:
 
 ```bash
-flatpak uninstall io.github.shyvortex.BraveOrigin
+flatpak uninstall io.github.rixbyte.BraveOrigin
 # Optional: Remove app data
-rm -rf ~/.var/app/io.github.shyvortex.BraveOrigin
+rm -rf ~/.var/app/io.github.rixbyte.BraveOrigin
 ```
 
 ---
