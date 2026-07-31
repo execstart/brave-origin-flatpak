@@ -73,8 +73,8 @@ jobs:
       - name: Build and Bundle
         run: |
           VERSION=$(grep -m1 'version:' version.txt | awk '{print $2}')
-          flatpak-builder --arch=${{ matrix.flatpak_arch }} --user --repo=repo --force-clean --install-deps-from=flathub build-dir io.github.shyvortex.BraveOrigin.yaml
-          flatpak build-bundle --arch=${{ matrix.flatpak_arch }} repo "brave-origin-${VERSION}-${{ matrix.file_arch }}.flatpak" io.github.shyvortex.BraveOrigin
+          flatpak-builder --arch=${{ matrix.flatpak_arch }} --user --repo=repo --force-clean --install-deps-from=flathub build-dir io.github.rixbyte.BraveOrigin.yaml
+          flatpak build-bundle --arch=${{ matrix.flatpak_arch }} repo "brave-origin-${VERSION}-${{ matrix.file_arch }}.flatpak" io.github.rixbyte.BraveOrigin
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
