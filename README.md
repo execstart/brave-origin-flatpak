@@ -10,7 +10,7 @@ It wraps the official prebuilt binaries for Origin from the [Brave Browser Linux
 
 The easiest way to install Brave Origin is using the standalone bundle. This bypasses the need for manual repositories and works on any system with Flatpak installed.
 
-1.  **Download** the latest `.flatpak` bundle from the [**Releases Page**](https://github.com/ShyVortex/brave-origin-flatpak/releases).
+1.  **Download** the latest `.flatpak` bundle from the [**Releases Page**](https://github.com/rixbyte/brave-origin-flatpak/releases).
 2.  **Install** it via the command line, in the directory where you downloaded the file:
 
     ```bash
