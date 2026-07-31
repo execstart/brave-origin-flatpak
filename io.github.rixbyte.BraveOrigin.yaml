@@ -1,4 +1,4 @@
-app-id: io.github.shyvortex.BraveOrigin
+app-id: io.github.rixbyte.BraveOrigin
 runtime: org.freedesktop.Platform
 runtime-version: '25.08'
 sdk: org.freedesktop.Sdk
@@ -103,11 +103,11 @@ modules:
     build-commands:
       - mkdir -p /app/brave
       - bsdtar --no-same-owner -xf brave.zip -C /app/brave
-      - install -Dm 644 brave-origin-browser.desktop /app/share/applications/io.github.shyvortex.BraveOrigin.desktop
-      - install -Dm 644 brave_lion.svg /app/share/icons/hicolor/scalable/apps/io.github.shyvortex.BraveOrigin.svg
+      - install -Dm 644 brave-origin-browser.desktop /app/share/applications/io.github.rixbyte.BraveOrigin.desktop
+      - install -Dm 644 brave_lion.svg /app/share/icons/hicolor/scalable/apps/io.github.rixbyte.BraveOrigin.svg
       - install -Dm 755 brave.sh /app/bin/brave
       - install -Dm 644 -t /app/etc cobalt.ini
-      - install -Dm 644 -t /app/share/metainfo io.github.shyvortex.BraveOrigin.metainfo.xml
+      - install -Dm 644 -t /app/share/metainfo io.github.rixbyte.BraveOrigin.metainfo.xml
     sources:
       - type: file
         url: https://github.com/brave/brave-browser/releases/download/v1.93.129/brave-origin-1.93.129-linux-amd64.zip
@@ -122,7 +122,7 @@ modules:
       - type: file
         path: cobalt.ini
       - type: file
-        path: io.github.shyvortex.BraveOrigin.metainfo.xml
+        path: io.github.rixbyte.BraveOrigin.metainfo.xml
       - type: file
         path: brave_lion.svg
       - type: file

@@ -1,8 +1,8 @@
 #!/usr/bin/env sh
 set -eu
 
-MANIFEST_FILE="io.github.shyvortex.BraveOrigin.yaml"
-METADATA_FILE="io.github.shyvortex.BraveOrigin.metainfo.xml"
+MANIFEST_FILE="io.github.rixbyte.BraveOrigin.yaml"
+METADATA_FILE="io.github.rixbyte.BraveOrigin.metainfo.xml"
 REPO_URL="https://github.com/brave/brave-browser/releases/download"
 
 if [ -f "fetch.config.yml" ]; then
