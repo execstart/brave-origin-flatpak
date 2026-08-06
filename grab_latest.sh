@@ -18,11 +18,11 @@ else
 fi
 
 printf "   Fetching releases from GitHub...\n"
-RELEASES_JSON=$(curl -s https://api.github.com/repos/brave/brave-browser/releases |
-    jq -c "[.[] | select(.tag_name != null and ($FILTER))] | sort_by(.created_at) | last")
+# RELEASES_JSON=$(curl -s https://api.github.com/repos/brave/brave-browser/releases |
+#     jq -c "[.[] | select(.tag_name != null and ($FILTER))] | sort_by(.created_at) | last")
 # LATEST_VERSION=$(printf "%s" "$RELEASES_JSON" | jq -r '.tag_name')
 LATEST_VERSION=$(curl -s https://api.github.com/repos/brave/brave-browser/releases/latest | jq .tag_name | tr -d '"')
-IS_PRERELEASE=$(printf "%s" "$RELEASES_JSON" | jq -r '.prerelease')
+# IS_PRERELEASE=$(printf "%s" "$RELEASES_JSON" | jq -r '.prerelease')
 
 if [ -z "$LATEST_VERSION" ] || [ "$LATEST_VERSION" = "null" ]; then
     printf "   Error: Failed to fetch valid version tag from GitHub.\n"
@@ -84,7 +84,8 @@ sed "s|version=\"${STRIPPED_CURRENT}\"|version=\"${STRIPPED_LATEST}\"|g" "$METAD
 sed "s|date=\"[0-9]\{4\}-[0-9]\{2\}-[0-9]\{2\}\"|date=\"${CURRENT_DATE}\"|g" "$METADATA_FILE" > "_" && mv "_" "$METADATA_FILE"
 
 # Update the version tracker
-printf "version: %s\nprerelease: %s\n" "$LATEST_VERSION" "$IS_PRERELEASE" > version.txt
+# printf "version: %s\nprerelease: %s\n" "$LATEST_VERSION" "$IS_PRERELEASE" > version.txt
+printf "version: %s\n" "$LATEST_VERSION" > version.txt
 
 printf "   New x86_64 SHA256: %s\n   New aarch64 SHA256: %s\n" "$NEW_SHA256_X86" "$NEW_SHA256_ARM"
 
