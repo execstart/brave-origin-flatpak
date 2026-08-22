@@ -110,13 +110,13 @@ modules:
       - install -Dm 644 -t /app/share/metainfo io.github.rixbyte.BraveOrigin.metainfo.xml
     sources:
       - type: file
-        url: https://github.com/brave/brave-browser/releases/download/v1.93.137/brave-origin-1.93.137-linux-amd64.zip
-        sha256: ac42d86f5e7e1a1febff98b4258c44776938a4033e4721f272b3c52065d7080c
+        url: https://github.com/brave/brave-browser/releases/download/v1.93.138/brave-origin-1.93.138-linux-amd64.zip
+        sha256: e543aa27587093caca500ddf74592468df1c50b6c740c0c950082893092422d6
         dest-filename: brave.zip
         only-arches: [x86_64]
       - type: file
-        url: https://github.com/brave/brave-browser/releases/download/v1.93.137/brave-origin-1.93.137-linux-arm64.zip
-        sha256: 0e8aab8c7895548db7a46c69ecdac1812ecb835c0e9edf1ce195d902ce1c19da
+        url: https://github.com/brave/brave-browser/releases/download/v1.93.138/brave-origin-1.93.138-linux-arm64.zip
+        sha256: f2113ad1058669eebcf4934a567fc2a6c19c5610c044bf7c3ebe81977446bb43
         dest-filename: brave.zip
         only-arches: [aarch64]
       - type: file
