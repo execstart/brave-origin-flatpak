@@ -30,10 +30,10 @@ jobs:
           git config --global user.name "brave-bot"
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
           
-          if [[ -n $(git status -s io.github.rixbyte.BraveOrigin.yaml) ]]; then
+          if [[ -n $(git status -s io.github.execstart.BraveOrigin.yaml) ]]; then
             echo "changes_detected=true" >> "$GITHUB_OUTPUT"
             VERSION=$(grep -m1 'version:' version.txt | awk '{print $2}')
-            git add io.github.rixbyte.BraveOrigin.yaml io.github.rixbyte.BraveOrigin.metainfo.xml version.txt
+            git add io.github.execstart.BraveOrigin.yaml io.github.execstart.BraveOrigin.metainfo.xml version.txt
             git commit -m "update: brave-origin $VERSION"
             git push origin HEAD:stable
           else
@@ -73,8 +73,8 @@ jobs:
       - name: Build and Bundle
         run: |
           VERSION=$(grep -m1 'version:' version.txt | awk '{print $2}')
-          flatpak-builder --arch=${{ matrix.flatpak_arch }} --user --repo=repo --force-clean --install-deps-from=flathub build-dir io.github.rixbyte.BraveOrigin.yaml
-          flatpak build-bundle --arch=${{ matrix.flatpak_arch }} repo "brave-origin-${VERSION}-${{ matrix.file_arch }}.flatpak" io.github.rixbyte.BraveOrigin
+          flatpak-builder --arch=${{ matrix.flatpak_arch }} --user --repo=repo --force-clean --install-deps-from=flathub build-dir io.github.execstart.BraveOrigin.yaml
+          flatpak build-bundle --arch=${{ matrix.flatpak_arch }} repo "brave-origin-${VERSION}-${{ matrix.file_arch }}.flatpak" io.github.execstart.BraveOrigin
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v4

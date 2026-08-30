@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright 2017 the Chromium authors, with modifications -->
 <component type="desktop-application">
-  <id>io.github.rixbyte.BraveOrigin</id>
-  <launchable type="desktop-id">io.github.rixbyte.BraveOrigin.desktop</launchable>
+  <id>io.github.execstart.BraveOrigin</id>
+  <launchable type="desktop-id">io.github.execstart.BraveOrigin.desktop</launchable>
   <name>Brave Origin</name>
   <developer_name>Brave Software</developer_name>
   <summary>Fast Internet, AI, Adblock</summary>
