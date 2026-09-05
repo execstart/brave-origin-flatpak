@@ -69,7 +69,7 @@ fi
 printf "   Updating manifest from %s -> %s\n" "$CURRENT_VERSION" "$LATEST_VERSION"
 
 # Update Manifest Files
-sed -i "s,${CURRENT_VERSION},${LATEST_VERSION}," "$MANIFEST_FILE" "$METADATA_FILE"
+sed -i "s,${CURRENT_VERSION},${LATEST_VERSION}," "$MANIFEST_FILE"
 sed -i "/linux-amd64\.zip/{n;s/sha256: [a-f0-9]*/sha256: $NEW_SHA256_X86/;}" "$MANIFEST_FILE"
 sed -i "/linux-arm64\.zip/{n;s/sha256: [a-f0-9]*/sha256: $NEW_SHA256_ARM/;}" "$MANIFEST_FILE"
 
@@ -77,7 +77,7 @@ sed -i "/linux-arm64\.zip/{n;s/sha256: [a-f0-9]*/sha256: $NEW_SHA256_ARM/;}" "$M
 sed -i  "/${CURRENT_VERSION}/i\    <release version=\"${LATEST_VERSION}\" date=\"${CURRENT_DATE}\"/>" $METADATA_FILE
 
 # Update the version tracker
-printf "version: %s\n" "$LATEST_VERSION" > version.txt
+printf "version: %s\n" "v$LATEST_VERSION" > version.txt
 
 printf "   Manifest updated successfully.\n"
 
