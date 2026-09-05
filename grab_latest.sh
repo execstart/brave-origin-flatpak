@@ -41,7 +41,7 @@ fi
 # Verify download URLs and download binaries to compute SHA256 before modifying any files
 printf "   Downloading binaries to compute SHA256...\n"
 
-DL_X86="$REPO_URL/$LATEST_VERSION/brave-origin-$STRIPPED_LATEST-linux-amd64.zip"
+DL_X86="$REPO_URL/$LATEST_VERSION/brave-origin-$LATEST_VERSION-linux-amd64.zip"
 TMP_X86=$(mktemp)
 if ! curl --fail -L -s -o "$TMP_X86" "$DL_X86"; then
     printf "   Error: Download URL for x86_64 does not exist: %s\n   Skipping update.\n" "$DL_X86"
@@ -49,7 +49,7 @@ if ! curl --fail -L -s -o "$TMP_X86" "$DL_X86"; then
     exit 0
 fi
 
-DL_ARM="$REPO_URL/$LATEST_VERSION/brave-origin-$STRIPPED_LATEST-linux-arm64.zip"
+DL_ARM="$REPO_URL/$LATEST_VERSION/brave-origin-$LATEST_VERSION-linux-arm64.zip"
 TMP_ARM=$(mktemp)
 if ! curl --fail -L -s -o "$TMP_ARM" "$DL_ARM"; then
     printf "   Error: Download URL for arm64 does not exist: %s\n   Skipping update.\n" "$DL_ARM"
@@ -69,12 +69,12 @@ fi
 printf "   Updating manifest from %s -> %s\n" "$CURRENT_VERSION" "$LATEST_VERSION"
 
 # Update Manifest Files
-sed -i "s,${STRIPPED_CURRENT},${STRIPPED_LATEST}," "$MANIFEST_FILE" "$METADATA_FILE"
+sed -i "s,${CURRENT_VERSION},${LATEST_VERSION}," "$MANIFEST_FILE" "$METADATA_FILE"
 sed -i "/linux-amd64\.zip/{n;s/sha256: [a-f0-9]*/sha256: $NEW_SHA256_X86/;}" "$MANIFEST_FILE"
 sed -i "/linux-arm64\.zip/{n;s/sha256: [a-f0-9]*/sha256: $NEW_SHA256_ARM/;}" "$MANIFEST_FILE"
 
 # Update Metadata Files
-sed -i  "/${STRIPPED_CURRENT}/i\    <release version=\"${STRIPPED_LATEST}\" date=\"${CURRENT_DATE}\"/>" $METADATA_FILE
+sed -i  "/${CURRENT_VERSION}/i\    <release version=\"${LATEST_VERSION}\" date=\"${CURRENT_DATE}\"/>" $METADATA_FILE
 
 # Update the version tracker
 printf "version: %s\n" "$LATEST_VERSION" > version.txt
