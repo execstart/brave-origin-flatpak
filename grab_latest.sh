@@ -69,7 +69,7 @@ fi
 printf "   Updating manifest from %s -> %s\n" "$CURRENT_VERSION" "$LATEST_VERSION"
 
 # Update Manifest Files
-sed -i "s,${CURRENT_VERSION},${LATEST_VERSION}," "$MANIFEST_FILE"
+sed -i "s,${CURRENT_VERSION},${LATEST_VERSION},g" "$MANIFEST_FILE"
 sed -i "/linux-amd64\.zip/{n;s/sha256: [a-f0-9]*/sha256: $NEW_SHA256_X86/;}" "$MANIFEST_FILE"
 sed -i "/linux-arm64\.zip/{n;s/sha256: [a-f0-9]*/sha256: $NEW_SHA256_ARM/;}" "$MANIFEST_FILE"
 
