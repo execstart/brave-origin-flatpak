@@ -41,7 +41,7 @@ fi
 # Verify download URLs and download binaries to compute SHA256 before modifying any files
 printf "   Downloading binaries to compute SHA256...\n"
 
-DL_X86="$REPO_URL/v$LATEST_VERSION/brave-origin-v$LATEST_VERSION-linux-amd64.zip"
+DL_X86="$REPO_URL/v$LATEST_VERSION/brave-origin-$LATEST_VERSION-linux-amd64.zip"
 TMP_X86=$(mktemp)
 if ! curl --fail -L -s -o "$TMP_X86" "$DL_X86"; then
     printf "   Error: Download URL for x86_64 does not exist: %s\n   Skipping update.\n" "$DL_X86"
@@ -49,7 +49,7 @@ if ! curl --fail -L -s -o "$TMP_X86" "$DL_X86"; then
     exit 0
 fi
 
-DL_ARM="$REPO_URL/v$LATEST_VERSION/brave-origin-v$LATEST_VERSION-linux-arm64.zip"
+DL_ARM="$REPO_URL/v$LATEST_VERSION/brave-origin-$LATEST_VERSION-linux-arm64.zip"
 TMP_ARM=$(mktemp)
 if ! curl --fail -L -s -o "$TMP_ARM" "$DL_ARM"; then
     printf "   Error: Download URL for arm64 does not exist: %s\n   Skipping update.\n" "$DL_ARM"
